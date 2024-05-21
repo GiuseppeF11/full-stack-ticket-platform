@@ -18,7 +18,7 @@ class TicketSeeder extends Seeder
         for ($i=0; $i < 20; $i++) {
             $newTicket = new Ticket();
             $newTicket -> operator_id = $faker->numberBetween(1 , 12);
-            $newTicket -> date =$faker-> dateTimeBetween('now', '+1 year')->format('Y-m-d');
+            $newTicket -> date =$faker-> dateTimeBetween('-1year', 'now')->format('Y-m-d');
             $newTicket ->status =  $faker->randomElement(['aperto', 'in attesa', 'in lavorazione', 'chiuso']);
             $newTicket ->title = $faker->sentence;
             $newTicket ->description = $faker->paragraph;
