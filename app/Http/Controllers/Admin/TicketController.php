@@ -13,7 +13,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::all();
+
+        return view('admin.tickets.index', compact('tickets'));
     }
 
     /**

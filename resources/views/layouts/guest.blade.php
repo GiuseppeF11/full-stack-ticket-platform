@@ -21,15 +21,7 @@
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             @auth
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.operators.index') }}">Operatori</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Link 3</a>
-                                </li>
+                                
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">Login</a>
