@@ -1,5 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 
 main {
-    background-color: lightcoral;
+    background-color: rgb(251, 218, 177);
+    min-height: 90vh;
+}
+
+.navbar {
+    background-color: rgb(255, 198, 198);
+    height: 10vh;
 }
