@@ -11,11 +11,11 @@
                         Tutti gli operatori
                     </h1>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <a href="{{ route('admin.operators.create') }}" class="btn btn-success w-100">
                             + Aggiungi
                         </a>
-                    </div>
+                    </div> --}}
 
                     <table class="table text-center">
                         <thead>
@@ -25,7 +25,7 @@
                                 <th scope="col">Aggiunto il</th>
                                 <th scope="col">Alle</th>
                                 <th scope="col">Disponibilità</th>
-                                <th scope="col">Azioni</th>
+                                {{-- <th scope="col">Azioni</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -41,7 +41,7 @@
                                             {{ $operator->is_busy == 0 ? 'Libero' : 'Occupato' }}
                                         </span>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('admin.operators.show', ['operator' => $operator->id]) }}" class="btn btn-xs btn-primary">
                                             Vedi
                                         </a>
@@ -55,7 +55,7 @@
                                                 Elimina
                                             </button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

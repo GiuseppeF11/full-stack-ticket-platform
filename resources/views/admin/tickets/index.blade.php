@@ -11,11 +11,11 @@
                         tickets
                     </h1>
 
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <a href="{{ route('admin.tickets.create') }}" class="btn btn-success w-100">
                             + Aggiungi
                         </a>
-                    </div> --}}
+                    </div>
 
                     <table class="table text-center">
                         <thead>
@@ -57,19 +57,19 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.tickets.show', ['ticket' => $ticket->id]) }}" class="btn  btn-outline-primary">
+                                        <a href="{{ route('admin.tickets.show', ['ticket' => $ticket->id]) }}" class="btn  btn-outline-primary py-0 px-1 w-100">
                                             Vedi
                                         </a>
                                         {{-- <a href="{{ route('admin.tickets.edit', ['ticket' => $ticket->id]) }}" class="btn btn-xs btn-warning">
                                             Modifica
-                                        </a>
-                                        <form class="d-inline-block" action="{{ route('admin.tickets.destroy', ['ticket' => $ticket->id]) }}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questa categoria?');">
+                                        </a> --}}
+                                        <form class="" action="{{ route('admin.tickets.destroy', ['ticket' => $ticket->id]) }}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questo ticket?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">
+                                            <button type="submit" class="btn btn-outline-danger py-0 px-1 w-100">
                                                 Elimina
                                             </button>
-                                        </form> --}}
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
