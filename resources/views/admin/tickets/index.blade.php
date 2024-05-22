@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center text-success text-uppercase">
+                    <h1 class="text-center text-success text-uppercase fw-bold ">
                         tickets
                     </h1>
 
@@ -26,17 +26,17 @@
                                 <th scope="col">Descrizione</th>
                                 <th scope="col">Apertura</th>
                                 <th scope="col">Stato</th>
-                                {{-- <th scope="col">Azioni</th> --}}
+                                <th scope="col">Azioni</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($tickets as $ticket)
                                 <tr>
                                     <th scope="row">{{ $ticket->id}}</th>
-                                    <td>{{-- {{ $ticket->operator}} --}}Nome Operatore </td>
+                                    <td>{{ $ticket->operator->name}}</td>
                                     <td>{{ $ticket->title}}</td>
                                     <td>{{ $ticket->description}}</td>
-                                    <td>{{ $ticket->created_at }}</td>
+                                    <td>{{ $ticket->date }}</td>
                                     <td class="text-uppercase">
                                         @if ($ticket->status == 'in attesa')
                                             <span class="badge bg-success">
@@ -56,11 +56,11 @@
                                             </span>
                                         @endif
                                     </td>
-                                    {{-- <td>
-                                        <a href="{{ route('admin.tickets.show', ['ticket' => $ticket->id]) }}" class="btn btn-xs btn-primary">
+                                    <td>
+                                        <a href="{{ route('admin.tickets.show', ['ticket' => $ticket->id]) }}" class="btn  btn-outline-primary">
                                             Vedi
                                         </a>
-                                        <a href="{{ route('admin.tickets.edit', ['ticket' => $ticket->id]) }}" class="btn btn-xs btn-warning">
+                                        {{-- <a href="{{ route('admin.tickets.edit', ['ticket' => $ticket->id]) }}" class="btn btn-xs btn-warning">
                                             Modifica
                                         </a>
                                         <form class="d-inline-block" action="{{ route('admin.tickets.destroy', ['ticket' => $ticket->id]) }}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questa categoria?');">
@@ -69,8 +69,8 @@
                                             <button type="submit" class="btn btn-danger">
                                                 Elimina
                                             </button>
-                                        </form>
-                                    </td> --}}
+                                        </form> --}}
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
