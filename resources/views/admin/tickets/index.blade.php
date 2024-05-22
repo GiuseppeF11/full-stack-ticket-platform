@@ -7,15 +7,15 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center text-success">
-                        Tutti i ticket
+                    <h1 class="text-center text-success text-uppercase">
+                        tickets
                     </h1>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <a href="{{ route('admin.tickets.create') }}" class="btn btn-success w-100">
                             + Aggiungi
                         </a>
-                    </div>
+                    </div> --}}
 
                     <table class="table text-center">
                         <thead>
@@ -25,7 +25,8 @@
                                 <th scope="col">Titolo</th>
                                 <th scope="col">Descrizione</th>
                                 <th scope="col">Apertura</th>
-                                <th scope="col">Azioni</th>
+                                <th scope="col">Stato</th>
+                                {{-- <th scope="col">Azioni</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -36,12 +37,26 @@
                                     <td>{{ $ticket->title}}</td>
                                     <td>{{ $ticket->description}}</td>
                                     <td>{{ $ticket->created_at }}</td>
-                                    <td>
-                                        <span class="badge {{ $ticket->is_busy == 0 ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $ticket->is_busy == 0 ? 'Libero' : 'Occupato' }}
+                                    <td class="text-uppercase">
+                                        @if ($ticket->status == 'in attesa')
+                                            <span class="badge bg-success">
+                                                {{ $ticket->status}}
+                                            </span>
+                                        @elseif ($ticket->status == 'aperto')
+                                            <span class="badge bg-warning">
+                                                {{ $ticket->status}}
+                                            </span>
+                                        @elseif ($ticket->status == 'in lavorazione')
+                                        <span class="badge bg-secondary">
+                                            {{ $ticket->status}}
                                         </span>
+                                        @elseif ($ticket->status == 'chiuso')
+                                            <span class="badge bg-primary">
+                                                {{ $ticket->status}}
+                                            </span>
+                                        @endif
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('admin.tickets.show', ['ticket' => $ticket->id]) }}" class="btn btn-xs btn-primary">
                                             Vedi
                                         </a>
@@ -55,7 +70,7 @@
                                                 Elimina
                                             </button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>
