@@ -4,7 +4,7 @@
 
 @section('main-content')
 <div class="container">
-    <h1>Edit Ticket</h1>
+    <h1>Modifica Ticket</h1>
 
     <form action="{{ route('admin.tickets.update', $ticket->id) }}" method="POST">
         @csrf
