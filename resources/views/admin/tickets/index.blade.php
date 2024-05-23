@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
+
 @extends('layouts.app')
 
 @section('page-title', 'Tutti i ticket')
@@ -7,12 +11,12 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center text-success text-uppercase fw-bold ">
+                    <h1 class="text-center text-uppercase fw-bold ">
                         tickets
                     </h1>
 
-                    <div class="mb-3">
-                        <a href="{{ route('admin.tickets.create') }}" class="btn btn-success w-100">
+                    <div class="my-3 d-flex justify-content-center ">
+                        <a href="{{ route('admin.tickets.create') }}" class="btn btn-success fw-bold">
                             + Aggiungi
                         </a>
                     </div>
@@ -35,7 +39,7 @@
                                     <th scope="row">{{ $ticket->id}}</th>
                                     <td>{{ $ticket->operator->name}}</td>
                                     <td>{{ $ticket->title}}</td>
-                                    <td>{{ $ticket->description}}</td>
+                                    <td>{{ Str::limit($ticket->description, 50) }}</td>
                                     <td>{{ $ticket->date }}</td>
                                     <td class="text-uppercase">
                                         @if ($ticket->status == 'in attesa')
@@ -85,7 +89,8 @@
             $('#ticketsTable').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Italian.json"
-                }
+                },
+                "order": [[4, "desc"]] // orders by the 5th column (index 4) in descending order
             });
         });
     </script>
