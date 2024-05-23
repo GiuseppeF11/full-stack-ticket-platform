@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Post;
+namespace App\Http\Requests\Ticket;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,19 +25,15 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'content' => 'required|string|max:10000',
-            'category_id' => 'nullable|exists:categories,id',
-            'tags' => 'nullable|array|exists:tags,id',
-            'cover_img' => 'nullable|image',
-            'delete_cover_img' => 'nullable|boolean',
+            'status' => 'required|string',
         ];
     }
 
     public function messages(): array
     {
         return [
-            //
+            'status.required' => 'Il campo status è obbligatorio.',
+            'status.string' => 'Il campo status deve essere una stringa.',
         ];
     }
 }

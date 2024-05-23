@@ -17,7 +17,7 @@
                         </a>
                     </div>
 
-                    <table class="table text-center">
+                    <table id="ticketsTable" class="table text-center">
                         <thead>
                             <tr>
                                 <th scope="col">N. Ticket</th>
@@ -57,12 +57,12 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.tickets.show', ['ticket' => $ticket->id]) }}" class="btn  btn-outline-primary py-0 px-1 w-100">
+                                        <a href="{{ route('admin.tickets.show', ['ticket' => $ticket->id]) }}" class="btn  btn-outline-secondary py-0 px-1 w-100">
                                             Vedi
                                         </a>
-                                        {{-- <a href="{{ route('admin.tickets.edit', ['ticket' => $ticket->id]) }}" class="btn btn-xs btn-warning">
+                                        <a href="{{ route('admin.tickets.edit', ['ticket' => $ticket->id]) }}" class="btn  btn-outline-primary py-0 px-1 w-100">
                                             Modifica
-                                        </a> --}}
+                                        </a>
                                         <form class="" action="{{ route('admin.tickets.destroy', ['ticket' => $ticket->id]) }}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questo ticket?');">
                                             @csrf
                                             @method('DELETE')
@@ -79,4 +79,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#ticketsTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Italian.json"
+                }
+            });
+        });
+    </script>
 @endsection

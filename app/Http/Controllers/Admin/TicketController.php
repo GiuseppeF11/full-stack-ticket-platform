@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 // Request
 use App\Http\Requests\Ticket\StoreRequest as TicketStoreRequest;
+use App\Http\Requests\Ticket\UpdateRequest as TicketUpdateRequest;
 
 class TicketController extends Controller
 {
@@ -79,18 +80,36 @@ class TicketController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Ticket $ticket)
     {
-        //
+        $statusOptions = ['in attesa', 'aperto', 'in lavorazione', 'chiuso'];
+
+        return view('admin.tickets.edit', compact('ticket', 'statusOptions'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TicketUpdateRequest $request, Ticket $ticket)
     {
-        //
+        $ticketData = $request->validated();
+
+        if ($ticketData['status'] === 'chiuso') {
+            $operator = Operator::find($ticket->operator_id);
+            
+            if ($operator) {
+                $operator->is_busy = 0;
+                $operator->save();
+            }
+        }
+
+        $ticket->update([
+            'status' => $ticketData['status'],
+        ]);
+
+        return redirect()->route('admin.tickets.show', compact('ticket'));
     }
+
 
     /**
      * Remove the specified resource from storage.
