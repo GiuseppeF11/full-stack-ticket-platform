@@ -7,8 +7,8 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center text-success">
-                        Tutti gli operatori
+                    <h1 class="text-center text-uppercase fw-bold ">
+                        Operatori
                     </h1>
 
                     {{-- <div class="mb-3">
@@ -17,7 +17,7 @@
                         </a>
                     </div> --}}
 
-                    <table class="table text-center">
+                    <table id="operatorsTable" class="table text-center">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -64,4 +64,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#operatorsTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Italian.json"
+                },
+                "order": [[4, "asc"]],
+                "pageLength": 25
+            });
+        });
+    </script>
 @endsection

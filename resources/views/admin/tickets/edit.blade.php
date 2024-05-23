@@ -21,7 +21,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">Aggiorna</button>
     </form>
 </div>
 @endsection
