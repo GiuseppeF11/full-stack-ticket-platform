@@ -63,13 +63,13 @@
                                         <a href="{{ route('admin.tickets.edit', ['ticket' => $ticket->id]) }}" class="btn  btn-outline-primary py-0 px-1 w-100">
                                             Modifica
                                         </a>
-                                        <form class="" action="{{ route('admin.tickets.destroy', ['ticket' => $ticket->id]) }}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questo ticket?');">
+                                        {{-- <form class="" action="{{ route('admin.tickets.destroy', ['ticket' => $ticket->id]) }}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questo ticket?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-danger py-0 px-1 w-100">
                                                 Elimina
                                             </button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach

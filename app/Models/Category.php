@@ -14,6 +14,6 @@ class Category extends Model
     ];
     public function tickets(): BelongsToMany
     {
-        return $this->belongsToMany(Project::class);
+        return $this->belongsToMany(Ticket::class);
     }
 }
