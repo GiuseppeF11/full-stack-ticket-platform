@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Ticket extends Model
 {
     use HasFactory;
@@ -22,5 +22,9 @@ class Ticket extends Model
     public function operator(): BelongsTo{
         return $this->belongsTo(Operator::class);
 
+    }
+
+    public function categories(): BelongsToMany{
+        return $this->belongsToMany(Category::class);
     }
 }
