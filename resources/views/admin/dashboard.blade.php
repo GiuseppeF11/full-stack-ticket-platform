@@ -19,15 +19,15 @@
                         <div class="col-6 ">
                             <img class="w-100 img-container"
                                 src="https://www.studiopassantino.it/wp-content/uploads/2022/02/segnalazione-illeciti.jpg"
-                                alt="">
+                                alt="Segnalazioni">
                         </div>
                     </div>
                     <div class="row mb-5">
                         <div class="col text-container">
                             <div class="col-6 ">
                                 <img class="w-100 img-container"
-                                    src="https://techbusiness.it/wp-content/uploads/2018/09/Customer-Service-1.png"
-                                    alt="">
+                                    src="https://img.freepik.com/free-vector/organic-flat-customer-support_23-2148881015.jpg"
+                                    alt="Operatori">
                             </div>
                             <p class="mb-4">
                                 Verifica la disponibilità degli operatori
@@ -43,7 +43,7 @@
                         <div class="col-6 ">
                             <img class="w-100 img-container"
                                 src="https://fluentsupport.com/wp-content/uploads/2022/06/Customer_satisfaction_Definition_importance__examples_01-1.jpg"
-                                alt="">
+                                alt="Status">
                         </div>
                     </div>
                 </div>
@@ -53,21 +53,8 @@
 @endsection
 
 <style lang="scss" scoped>
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-        }
-        40% {
-            transform: translateY(-10px);
-        }
-        60% {
-            transform: translateY(-10px);
-        }
-    }
-
     .title {
         transition: 0.3s;
-        animation: bounce 2s infinite;
     }
 
     .text-container {
