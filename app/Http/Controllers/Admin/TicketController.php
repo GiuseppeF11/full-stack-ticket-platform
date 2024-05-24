@@ -18,7 +18,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::all();
+        $tickets = Ticket::with('categories')->get();
 
         return view('admin.tickets.index', compact('tickets'));
     }
@@ -49,7 +49,7 @@ class TicketController extends Controller
         return redirect()->back()->withErrors(['error' => 'Non ci sono operatori disponibili.']);
     }
 
-    // Metto 
+    // Metto
     $randomOperatorId = $operatorIds[array_rand($operatorIds)];
 
     $ticket = Ticket::create([
@@ -96,7 +96,7 @@ class TicketController extends Controller
 
         if ($ticketData['status'] === 'chiuso') {
             $operator = Operator::find($ticket->operator_id);
-            
+
             if ($operator) {
                 $operator->is_busy = 0;
                 $operator->save();

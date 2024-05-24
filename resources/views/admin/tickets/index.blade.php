@@ -28,6 +28,7 @@
                                 <th scope="col">Operatore</th>
                                 <th scope="col">Titolo</th>
                                 <th scope="col">Descrizione</th>
+                                <th scope="col">Categoria</th>
                                 <th scope="col">Apertura</th>
                                 <th scope="col">Stato</th>
                                 <th scope="col">Azioni</th>
@@ -40,6 +41,7 @@
                                     <td>{{ $ticket->operator->name}}</td>
                                     <td>{{ $ticket->title}}</td>
                                     <td>{{ Str::limit($ticket->description, 50) }}</td>
+                                    <td>@foreach ($ticket->categories as $category){{$category->name}}@endforeach</td>
                                     <td>{{ $ticket->date }}</td>
                                     <td class="text-uppercase">
                                         @if ($ticket->status == 'in attesa')
